@@ -15,7 +15,6 @@ var server = new hapi.Server();
 server.route(routes.routes);
 
 
-
 // parseurls endpoint test
 describe('add endpoint', function(){
   it('add - should add two numbers together', function(done){

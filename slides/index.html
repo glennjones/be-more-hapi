@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=1200" />
+		<title>Be more hapi</title>
+<link href="assets/prettify.css" rel="stylesheet" type="text/css" />
+		<link href="assets/fathom.sample.css" rel="stylesheet" type="text/css" />
+		
+
+		<script src="assets/jquery.min.js" type="text/javascript"></script>
+		<script src="assets/fathom.js" type="text/javascript"></script>
+		<script src="assets/prettify.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#presentation").fathom();
+			prettyPrint();
+		});
+		</script>
+	</head>
+	<body>
+	
+		<div id="presentation">
+			<div class="slide">
+				<h1 id="intro">Be more hapi</h1>
+				<h1><img id="logo" src="assets/hapi-logo.png"/></h1>
+			</div>
+
+
+			<div class="slide">
+				<h1 class="centered four-line">hapi is the <strong>perfect foundation for REST APIs</strong>. It has a simple to use <strong>configuration-centric design</strong> with built-in support for <strong>input validation, caching & authentication</strong></h1>
+			</div>
+
+			<div class="slide">
+				<h1 class="centered five-line"><strong>do not let the cartoons put you off</strong> </br></br> hapi is built by WalmatLabs to power their mobile data access and one of its key team members is Eran Hammer author of OAuth. </h1>
+			</div>
+
+
+
+
+
+			<div class="slide">
+				<h1>Your first hapi app</h1>
+<pre class="prettyprint" lang-javascript>
+var Hapi = require('hapi'),
+    server = new Hapi.Server('localhost', 8000);
+
+server.addRoute({
+    method : 'GET',
+    path : '/hello',
+    config : {
+    	handler: helloHandler
+    }
+});
+function helloHandler(request) {
+    request.reply({ greeting: 'hello world' });
+}
+server.start();
+</pre>
+<pre class="prettyprint" lang-javascript>
+$ node app.js
+</pre>
+			</div>
+
+
+			<div class="slide">
+				<h1>Fine grain control over static files</h1>
+<pre class="prettyprint" lang-javascript>
+server.addRoute({
+    method: 'GET',
+    path: '/{path*}',
+    handler: {
+        directory: {
+            path: './public',
+            listing: false,
+            index: true
+        }
+});
+</pre>
+<pre class="prettyprint" lang-javascript>
+path: '/{path*3}',
+</pre>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Templates are simple</h1>
+<pre class="prettyprint" lang-javascript>
+var serverOptions = {
+    views: {
+        path: 'templates',
+        engines: { html: 'handlebars' },
+        partialsPath: __dirname.replace('/bin','') + '/templates/withPartials',
+        helpersPath: __dirname.replace('/bin','') + '/templates/helpers',
+        isCached: false
+    },
+    cors: true
+};
+var server = hapi.createServer('localhost', 3000, serverOptions);
+</pre>
+
+<p>Note: the simple switch for CORS support</p>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Using a template is easy</h1>
+<pre class="prettyprint" lang-javascript>
+server.addRoute({
+    method: 'GET',
+    path: '/',
+    config: {
+        handler: handlers.indexHandler
+    }
+});
+
+function indexHandler(request) {
+    request.reply.view('index.html', {
+        title: 'My API' 
+    });
+}
+</pre>
+			</div>
+
+
+			<div class="slide">
+				<h1>Lets talk APIs </br>Configuration based validation</h1>
+<pre class="prettyprint" lang-javascript>
+server.addRoute({
+    method : 'GET',
+    path : '/user',
+    config : {
+    	handler: handler,
+    	validate: {
+    	    query: {
+    	        id: hapi.types.Number().min(100).required()
+    	    }
+    	}
+    }
+});
+</pre>
+<pre class="prettyprint" lang-javascript>
+http://localhost:8000/user?id=101
+</pre>
+			</div>
+
+
+			<div class="slide">
+				<h1>More restful approach...</h1>
+<pre class="prettyprint" lang-javascript>
+server.addRoute({
+    method : 'GET',
+    path : '/user/{username}',
+    config : {
+    	handler: handler,
+    	validate: {
+    	    path: {
+    	        username: hapi.types.String().min(4).min(24).required()
+    	    }
+    	}
+    }
+});
+</pre>
+<pre class="prettyprint" lang-javascript>
+http://localhost:8000/username/glennjones
+</pre>
+			</div>
+	
+
+			<div class="slide">
+				<h1>Input validation</h1>
+
+				<ul class="list">
+					<li>Inputs: <code>query</code>, <code>path</code> and <code>payload</code></li>
+					<li>Types: <code>string</code>, <code>number</code>, <code>boolean</code> and <code>array</code></li>
+					<li>Sets of test for each type: <code>require()</code>, <code>alphanum()</code> <code>min()</code> <code>max()</code>, <code>email()</code> and <code>date()</code> etc.</li>
+					<li>Regex test i.e. <code>regex(/[a-zA-Z0-9]{3,30}/)</code></li>
+					<li>Types and test are chained</li>
+					<li>Linking items using: <code>with</code> or <code>without</code></li>
+					<li>Custom types</li>
+				</ul>
+			</div>
+
+
+			<div class="slide">
+				<h1>Adding metadata to configuration</h1>
+<pre class="prettyprint" lang-javascript>{
+    method: 'GET',
+    path: '/sum/add/{a}/{b}',
+    config: {
+        handler: handlers.add,
+        description: 'Add',
+        notes: 'Adds together two numbers and return the result',
+        tags: ['api'],
+        jsonp: 'callback',
+        validate: { 
+            path: {
+                a: hapi.types.Number().required().description('the first number'),
+                b: hapi.types.Number().required().description('the second number')
+            }
+        }
+    }
+},
+</pre>
+			</div>
+
+
+			<div class="slide">
+				<h1 class="centered three-line">we need to <strong>improve APIs by designing discoverability</strong> using tools that allow users to explore... </h1>
+			</div>
+
+
+			<div id="demo-image" class="slide">
+				<h1>hapi-swagger</h1></div>
+
+
+			<div class="slide">
+				<h1 class="centered three-line">hapi-swagger is built using two core parts of HAPI, extending the configuration with metadata and its plug-in architecture</h1>
+			</div>
+
+
+
+
+
+			<div class="slide">
+				<h1>Caching</h1>
+<pre class="prettyprint" lang-javascript>				
+server.addRoute({
+    method : 'GET',
+    path : '/user/{username}',
+    config : {
+    	handler: handler,
+    	validate: {
+    	    cache: {
+    	        mode: 'server+client',
+    	        expiresIn: 5 * 60 * 1000,
+    	        staleIn: 4 * 60 * 1000,
+    	        staleTimeout: 200
+    	    }
+    	}
+    }
+});
+</pre>
+			</div>
+
+
+<div id="passport-image" class="slide">
+<h1>authentication with passport.js</h1>
+</div>
+
+
+
+			<div class="slide">
+				<h1>The importance of server.inject</h1>
+<pre class="prettyprint" lang-javascript>var     fs    = require('fs'),
+var server = new hapi.Server();
+server.route(routes.routes);
+
+describe('add endpoint', function(){
+  it('add - should add two numbers together', function(done){
+    server.inject({method: 'GET', url: '/sum/add/5/5'}, function (res) {
+        assert.deepEqual(
+        {
+            "equals": 10      
+        }, JSON.parse(res.payload));
+        done();
+    });
+  })
+})
+</pre>
+<p>End to end integration tests within the project.</p>
+			</div>
+
+
+			<div class="slide">
+				<h1>Batch process to reduce roundtrips</h1>
+<pre class="prettyprint" lang-javascript>
+> GET /batch HTTP/1.1
+{ 
+    "requests": [
+        {"method": "get", "path": "/currentuser"},
+        {"method": "get", "path": "/users/$0.id/profile"}
+    ] 
+}
+</pre>
+<p>Bassmaster plug-in - Allows you to pass the result from one request to another.</p>
+</div>
+
+
+			<div class="slide">
+				<h1>Logging</h1>
+
+				<ul class="list">
+					<li>Logs to console, file and http endpoint</li>
+					<li>Focuses on requests, ops & errors</li>
+					<li>Event driven</li>
+					<li>Different logging by environment</li>
+				</ul>
+<pre class="prettyprint" lang-javascript>
+131010/170725.939, request, http://localhost:8000: 
+get /sum/add/ {"a":"5","b":"7"} (2ms)
+</pre>				
+
+				<p>Good plug-in for logging and TV plug-in for remote monitoring</p>
+			</div>
+
+
+			<div id="remote-monitor" class="slide">
+			<h1>my advanced monitoring plug-in</h1>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Source material worth looking at</h1>
+
+				<ul class="list">
+					<li><a href="http://spumko.github.io/">Documentation</a>
+					<li><a href="https://air.mozilla.org/hapi-hapi-joi-joi-web-development-with-hapi-and-nodejs/">hapi hapi joi joi</a> - video of talk</li>
+					<li><a href="Building Services with hapi and Node.js">Building Services with hapi and node</a> - video of talk</li>
+					<li><a href="https://github.com/glennjones/be-more-hapi">be-more-hapi</a> - code example from this talk</li>
+					<li><a href="https://github.com/glennjones/hapi-swagger">hapi-swagger</a> - swagger UI plug-in for hapi</li>
+				</ul>
+
+			</div>
+
+
+			<div class="slide">
+				<h1 class="centered three-line">Thanks - questions?</h1>
+			</div>
+			
+
+			<div class="slide">
+				<h1 class="centered three-line">Presented to <a href="http://asyncjs.com/be-more-hapi/">Asyncjs</a> on the
+					10 Oct 2012 in Brighton. The content and code are open sourced under MIT licence. <a href="http://glennJones.net">Glenn Jones</a>.</h1>
+			</div>
+
+
+		</div>
+	
+	</body>
+</html>
