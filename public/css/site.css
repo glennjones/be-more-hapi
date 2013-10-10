@@ -1,0 +1,100 @@
+
+
+.stats-boxes{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.stats-box{
+	width: 3em;
+	font-size: 3rem;
+	border: solid 1px #333;
+	border-radius: 4px;
+	padding: 10px;
+	margin-right: 0.4em;
+	float: left;
+
+}
+
+.stats-box span.stats-label{
+	font-size: 0.8rem;
+	display: block;
+	font-weight: 400;
+}
+
+
+table.chart-table{
+	margin: 0;
+}
+
+table.chart-table tbody td:first-child {
+	text-align: right;
+	padding-right: 8px;
+	width: 30%;
+}
+
+table.chart-table tbody td:last-child {
+	width: 10%;
+}
+
+table.chart-table tbody td div{
+	background-color: #c5bbd0;
+	color: #c5bbd0;
+	height: 10px;
+	min-width: 1px;
+	text-indent: -9999px
+}
+
+table.graphs-table tbody td:first-child {
+	width: 20%;
+}
+
+table.graphs-table tbody td:last-child {
+	width: 20%;
+}
+
+
+ul.profile-list{
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-transform: lowercase;
+
+}
+
+#tools .button{
+	margin-left: 0;
+}
+
+#profile table caption{
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+#profile table{
+	margin: 4em 0 4em 0;
+}
+
+#profile table td {
+	width: 20%;
+}
+
+#profile table td:last-child {
+	width: 80%;
+}
+
+.blog-platforms-boxes{
+	margin-right: 0.4em;
+}
+
+.body-code{
+	width: 100%;
+	height: 300px;
+}
+
+form.button-form{
+	display: inline-block;
+	margin: 0;
+	margin-right: 10px;
+}
+

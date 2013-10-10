@@ -1,0 +1,24 @@
+#readme h1, #readme h2, #readme h3, #readme h4{
+	margin-bottom: 0;
+	text-transform: none;
+	font-weight: bold;
+}
+
+#readme p, #readme li, #readme td{
+	font-family: arial;
+}
+
+#readme  ol {
+	list-style-type: decimal;
+}
+
+#readme  ul {
+	list-style: disc;
+}
+
+#readme li, #readme ol li, #readme ul li {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+}
+
