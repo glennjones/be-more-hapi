@@ -98,3 +98,8 @@ form.button-form{
 	margin-right: 10px;
 }
 
+input[type="submit"]{
+  margin-top: 10px;
+  font-size: 2em;
+}
+

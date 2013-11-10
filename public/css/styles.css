@@ -311,8 +311,9 @@ input[type="text"]{
    color: #333;
 }
 
-input[type="submit"]{
+input[type="submit"], input[type="button"]{
   margin-top: 10px;
+  font-size: 2em;
 }
 
 label{

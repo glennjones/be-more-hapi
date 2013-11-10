@@ -3,10 +3,9 @@
 	<head>
 		<meta name="viewport" content="width=1200" />
 		<title>Be more hapi</title>
-<link href="assets/prettify.css" rel="stylesheet" type="text/css" />
-		<link href="assets/fathom.sample.css" rel="stylesheet" type="text/css" />
-		
 
+		<link href="assets/prettify.css" rel="stylesheet" type="text/css" />
+		<link href="assets/fathom.sample.css" rel="stylesheet" type="text/css" />
 		<script src="assets/jquery.min.js" type="text/javascript"></script>
 		<script src="assets/fathom.js" type="text/javascript"></script>
 		<script src="assets/prettify.js" type="text/javascript"></script>
@@ -17,28 +16,32 @@
 			prettyPrint();
 		});
 		</script>
+
 	</head>
 	<body>
 	
-		<div id="presentation">
+		<div id="presentation" class="h-event">
+
+			<!-- 1 -->
 			<div class="slide">
-				<h1 id="intro">Be more hapi</h1>
+				<h1 id="intro" class="p-name">Be more hapi</h1>
 				<h1><img id="logo" src="assets/hapi-logo.png"/></h1>
 			</div>
 
 
+			<!-- 2 -->
 			<div class="slide">
-				<h1 class="centered four-line">hapi is the <strong>perfect foundation for REST APIs</strong>. It has a simple to use <strong>configuration-centric design</strong> with built-in support for <strong>input validation, caching & authentication</strong></h1>
+				<h1 class="centered four-line p-summary">hapi is the <strong>perfect foundation for REST APIs</strong>. It has a simple to use <strong>configuration-centric design</strong> with built-in support for <strong>input validation, caching &amp; authentication</strong></h1>
 			</div>
 
+
+			<!-- 3 -->
 			<div class="slide">
 				<h1 class="centered five-line"><strong>do not let the cartoons put you off</strong> </br></br> hapi is built by WalmatLabs to power their mobile data access and one of its key team members is Eran Hammer author of OAuth. </h1>
 			</div>
 
 
-
-
-
+			<!-- 4 -->
 			<div class="slide">
 				<h1>Your first hapi app</h1>
 <pre class="prettyprint" lang-javascript>
@@ -63,6 +66,7 @@ $ node app.js
 			</div>
 
 
+			<!-- 5 -->
 			<div class="slide">
 				<h1>Fine grain control over static files</h1>
 <pre class="prettyprint" lang-javascript>
@@ -83,9 +87,9 @@ path: '/{path*3}',
 			</div>
 
 
-
+			<!-- 6 -->
 			<div class="slide">
-				<h1>Templates are simple</h1>
+				<h1>Setting up templates are simple</h1>
 <pre class="prettyprint" lang-javascript>
 var serverOptions = {
     views: {
@@ -104,7 +108,7 @@ var server = hapi.createServer('localhost', 3000, serverOptions);
 			</div>
 
 
-
+			<!-- 7 -->
 			<div class="slide">
 				<h1>Using a template is easy</h1>
 <pre class="prettyprint" lang-javascript>
@@ -125,6 +129,7 @@ function indexHandler(request) {
 			</div>
 
 
+			<!-- 8 -->
 			<div class="slide">
 				<h1>Lets talk APIs </br>Configuration based validation</h1>
 <pre class="prettyprint" lang-javascript>
@@ -147,6 +152,7 @@ http://localhost:8000/user?id=101
 			</div>
 
 
+			<!-- 9 -->
 			<div class="slide">
 				<h1>More restful approach...</h1>
 <pre class="prettyprint" lang-javascript>
@@ -169,6 +175,7 @@ http://localhost:8000/username/glennjones
 			</div>
 	
 
+			<!-- 10 -->
 			<div class="slide">
 				<h1>Input validation</h1>
 
@@ -184,6 +191,7 @@ http://localhost:8000/username/glennjones
 			</div>
 
 
+			<!-- 11 -->
 			<div class="slide">
 				<h1>Adding metadata to configuration</h1>
 <pre class="prettyprint" lang-javascript>{
@@ -207,23 +215,25 @@ http://localhost:8000/username/glennjones
 			</div>
 
 
+			<!-- 11 -->
 			<div class="slide">
 				<h1 class="centered three-line">we need to <strong>improve APIs by designing discoverability</strong> using tools that allow users to explore... </h1>
 			</div>
 
 
+			<!-- 12 -->
 			<div id="demo-image" class="slide">
-				<h1>hapi-swagger</h1></div>
+				<h1>hapi-swagger</h1>
+			</div>
 
 
+			<!-- 13 -->
 			<div class="slide">
 				<h1 class="centered three-line">hapi-swagger is built using two core parts of HAPI, extending the configuration with metadata and its plug-in architecture</h1>
 			</div>
 
 
-
-
-
+			<!-- 14 -->
 			<div class="slide">
 				<h1>Caching</h1>
 <pre class="prettyprint" lang-javascript>				
@@ -246,12 +256,13 @@ server.addRoute({
 			</div>
 
 
-<div id="passport-image" class="slide">
-<h1>authentication with passport.js</h1>
-</div>
+			<!-- 15 -->
+			<div id="passport-image" class="slide">
+			<h1>authentication with passport.js</h1>
+			</div>
 
 
-
+			<!-- 16 -->
 			<div class="slide">
 				<h1>The importance of server.inject</h1>
 <pre class="prettyprint" lang-javascript>var     fs    = require('fs'),
@@ -274,6 +285,7 @@ describe('add endpoint', function(){
 			</div>
 
 
+			<!-- 17 -->
 			<div class="slide">
 				<h1>Batch process to reduce roundtrips</h1>
 <pre class="prettyprint" lang-javascript>
@@ -289,9 +301,9 @@ describe('add endpoint', function(){
 </div>
 
 
+			<!-- 18 -->
 			<div class="slide">
 				<h1>Logging</h1>
-
 				<ul class="list">
 					<li>Logs to console, file and http endpoint</li>
 					<li>Focuses on requests, ops & errors</li>
@@ -302,20 +314,19 @@ describe('add endpoint', function(){
 131010/170725.939, request, http://localhost:8000: 
 get /sum/add/ {"a":"5","b":"7"} (2ms)
 </pre>				
-
 				<p>Good plug-in for logging and TV plug-in for remote monitoring</p>
 			</div>
 
 
+			<!-- 19 -->
 			<div id="remote-monitor" class="slide">
-			<h1>my advanced monitoring plug-in</h1>
+				<h1>my advanced monitoring plug-in</h1>
 			</div>
 
 
-
+			<!-- 20 -->
 			<div class="slide">
 				<h1>Source material worth looking at</h1>
-
 				<ul class="list">
 					<li><a href="http://spumko.github.io/">Documentation</a>
 					<li><a href="https://air.mozilla.org/hapi-hapi-joi-joi-web-development-with-hapi-and-nodejs/">hapi hapi joi joi</a> - video of talk</li>
@@ -323,18 +334,19 @@ get /sum/add/ {"a":"5","b":"7"} (2ms)
 					<li><a href="https://github.com/glennjones/be-more-hapi">be-more-hapi</a> - code example from this talk</li>
 					<li><a href="https://github.com/glennjones/hapi-swagger">hapi-swagger</a> - swagger UI plug-in for hapi</li>
 				</ul>
-
 			</div>
 
 
+			<!-- 21 -->
 			<div class="slide">
 				<h1 class="centered three-line">Thanks - questions?</h1>
 			</div>
 			
 
+			<!-- 22 -->
 			<div class="slide">
-				<h1 class="centered three-line">Presented to <a href="http://asyncjs.com/be-more-hapi/">Asyncjs</a> on the
-					10 Oct 2012 in Brighton. The content and code are open sourced under MIT licence. <a href="http://glennJones.net">Glenn Jones</a>.</h1>
+				<h1 class="centered three-line">Presented to <a class="u-url" href="http://asyncjs.com/be-more-hapi/">Asyncjs</a> on the
+					<time class="dt-start" datatime="2013-10-10">10 Oct 2012</time> in <span class="p-location">Brighton</span>. The content and code are open sourced under MIT licence. <a class="p-speaker h-card" href="http://glennJones.net">Glenn Jones</a>.</h1>
 			</div>
 
 
