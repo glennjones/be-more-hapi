@@ -1,5 +1,6 @@
 'use strict';
 var hapi            = require('hapi'),
+    swagger         = require('hapi-swagger'),
     pack            = require('../package'),
     routes          = require('../lib/routes.js');
 
