@@ -17,6 +17,8 @@ server.route(routes.routes);
 
 // parseurls endpoint test
 describe('add endpoint', function(){
+
+
   it('add - should add two numbers together', function(done){
     server.inject({method: 'GET', url: '/sum/add/5/5'}, function (res) {
         assert.deepEqual(
@@ -32,7 +34,7 @@ describe('add endpoint', function(){
     server.inject({method: 'GET', url: '/sum/add/100/x'}, function (res) {
         assert.deepEqual(
         {
-          'code': 400,
+          'statusCode': 400,
           'error': 'Bad Request',
           'message': 'the value of b must be a number',
           'validation': {
@@ -45,5 +47,6 @@ describe('add endpoint', function(){
         done();
     });
   });
+
 
 });
