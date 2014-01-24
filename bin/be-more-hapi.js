@@ -28,7 +28,7 @@ server.start(function(){
 
 
 // adds bassmaster for batch processing
-server.pack.allow({ ext: true }).require('bassmaster', {batchEndpoint: '/batch'}, function (err) {
+server.pack.require('bassmaster', {batchEndpoint: '/batch'}, function (err) {
     if (!err && err !== null) {
         console.log(['error'], 'plugin "bassmaster" load error: ' + err) 
     }else{
@@ -46,7 +46,7 @@ var swaggerOptions = {
 
 
 // adds swagger self documentation plugin
-server.pack.allow({ ext: true }).require('hapi-swagger', swaggerOptions, function (err) {
+server.pack.require('hapi-swagger', swaggerOptions, function (err) {
     if (!err && err !== null) {
         console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
     }else{
@@ -56,7 +56,7 @@ server.pack.allow({ ext: true }).require('hapi-swagger', swaggerOptions, functio
 
  
 function addTag(path, method, tags ){
-    var routes = server.routingTable(),
+    var routes = server.table(),
         i = routes.length,
         route;
 
