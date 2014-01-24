@@ -32,7 +32,7 @@ describe('add endpoint', function(){
     server.inject({method: 'GET', url: '/sum/add/100/x'}, function (res) {
         assert.deepEqual(
         {
-          'code': 400,
+          'statusCode': 400,
           'error': 'Bad Request',
           'message': 'the value of b must be a number',
           'validation': {
