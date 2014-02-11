@@ -1,7 +1,7 @@
 {
   "name": "be-more-hapi",
   "author": "Glenn Jones",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A example site using HAPI to build an API",
   "keywords": [
     "example",
@@ -19,18 +19,18 @@
     "start": "bin/be-more-hapi"
   },
   "dependencies": {
-    "hapi": "2.x.x",
-    "handlebars": "1.0.x",
-    "hapi-swagger": "0.1.x",
-    "marked": "0.2.x",
-    "mongoose": "3.6.x"
+    "hapi": "2.x",
+    "handlebars": "1.3.x",
+    "hapi-swagger": "https://api.github.com/repos/glennjones/hapi-swagger/tarball/master",
+    "marked": "0.3.x",
+    "mongoose": "3.8.x"
   },
   "devDependencies": {
-    "grunt": "0.4.1",
-    "grunt-contrib-jshint": "0.1.1",
-    "grunt-mocha-test": "0.4.0",
-    "mocha": "1.10.0",
-    "chai": "1.6.0"
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.8.x",
+    "grunt-mocha-test": "0.9.x",
+    "mocha": "1.17.x",
+    "chai": "1.9.x"
   },
   "engines": {
     "node": ">= 0.10.x"
