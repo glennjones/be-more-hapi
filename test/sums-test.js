@@ -20,10 +20,10 @@ describe('add endpoint', function(){
 
 
   it('add - should add two numbers together', function(done){
-    server.inject({method: 'GET', url: '/sum/add/5/5'}, function (res) {
+    server.inject({method: 'PUT', url: '/sum/add/5/5'}, function (res) {
         assert.deepEqual(
         {
-            'equals': 10      
+          'equals': 10      
         }, JSON.parse(res.payload));
         done();
     });
@@ -31,7 +31,7 @@ describe('add endpoint', function(){
 
 
   it('add - should error if a string is passed', function(done){
-    server.inject({method: 'GET', url: '/sum/add/100/x'}, function (res) {
+    server.inject({method: 'PUT', url: '/sum/add/100/x'}, function (res) {
         assert.deepEqual(
         {
           'statusCode': 400,

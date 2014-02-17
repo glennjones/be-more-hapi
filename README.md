@@ -4,8 +4,6 @@ This web API was built to demonstrate some of the [hapi](hapijs.com) features an
 
 The API is a simple calculator that allows you to add, subtract, divide or multiple two numbers. To demonstrate a more common set of API calls I also added methods to store sums into a mongodb database. 
 
-__UPDATED__: now works with version 2 of HAPI
-
 
 ## Install
 You first need to install [node.js](http://nodejs.org/) and [mongodb](http://www.mongodb.org/downloads) if you do not already have them on your computer. Then download the code from github: 
@@ -24,13 +22,13 @@ or
 2. Run `$ npm install`
 3. Start the mongodb server `$ mongod`
 4. Run `$ node bin/be-more-hapi`
-5. Connect to the server using `http://localhost:8000`
+5. Connect to the server using `http://localhost:3000`
 
 
 ## Sums
-All the sum endpoints are http GET requests. Where the two numbers are the last two fragments of the URL:
+All the sum endpoints are http PUT requests. Where the two numbers are the last two fragments of the URL:
 
-    http://localhost:8000/sum/multiple/5/6
+    http://localhost:3000/sum/multiple/5/6
     
 If the sum is completed without error the response is also a simple format:
 
