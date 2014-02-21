@@ -9,8 +9,8 @@ var serverOptions = {
     views: {
         path: 'templates',
         engines: { html: 'handlebars' },
-        partialsPath: __dirname.replace('/bin','') + '/templates/withPartials',
-        helpersPath: __dirname.replace('/bin','') + '/templates/helpers',
+        partialsPath: './templates/withPartials',
+        helpersPath: './templates/helpers',
         isCached: false
     },
     cors: true
