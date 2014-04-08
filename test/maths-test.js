@@ -92,16 +92,6 @@ describe('maths', function(){
 		});
 	});
 
-	it('should multiple numbers', function(done){
-		var options = {
-			a: 10,
-			b: 5
-		};
-		maths.multiple(options, function(error, result){
-			assert.equal(result, 50, '10 * 5 should = 50');
-			assert.equal(error, null, '10 * 5 should = 50 without error');
-			done();
-		});
-	});
+
 
 });
