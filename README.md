@@ -5,7 +5,7 @@ This web API was built to demonstrate some of the [hapi](hapijs.com) features an
 The API is a simple calculator that allows you to add, subtract, divide or multiple two numbers. To demonstrate a more common set of API calls I also added methods to store sums into a mongodb database.
 
 ## hapi-swagger
-The project makes use of a hapi.js plugin [hapi-swagger](https://github.com/glennjones/hapi-swagger) which self documents the API using the [Swagger UI](https://github.com/wordnik/swagger-ui) interface. It provides simple forms which developers can use to quickly interact with your API and learn how it works. The forms and documenetation are built from the standard hapi.js routes object.
+The project makes use of a hapi.js plugin [hapi-swagger](https://github.com/glennjones/hapi-swagger) which self documents the API using the [Swagger UI](https://github.com/wordnik/swagger-ui) interface. It provides simple forms which developers can use to quickly interact with your API and learn how it works. The forms and documentation are built from the standard hapi.js routes object.
 
 
 ## Install
