@@ -35,7 +35,7 @@ var swaggerOptions = {
 
 // adds swagger self documentation plugin
 server.pack.require({'hapi-swagger': swaggerOptions}, function (err) {
-    if (!err && err !== null) {
+    if (err) {
         console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
     }else{
         console.log(['start'], 'swagger interface loaded')
