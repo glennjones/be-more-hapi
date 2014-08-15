@@ -28,7 +28,7 @@
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                url: window.location.protocol + '//' + window.location.host + '/docs?tags=reduced', //note the tag querystring
+                url: window.location.protocol + '//' + window.location.host + '/docs?tags=reduced,-three', //note the tag querystring
                 dom_id: "swagger-ui-container",
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
                 onComplete: function(swaggerApi, swaggerUi){
