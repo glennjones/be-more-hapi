@@ -28,6 +28,10 @@ or
 5. Connect to the server using `http://localhost:3000`
 
 
+## Example of using tags to show a subset of an API
+HAPI-Swagger plugin allows you [tag](https://github.com/glennjones/hapi-swagger#tagging-your-api-routes) API enpoints into groups that can be displayed independently. The reduced example page [http://localhost:3000/reduced](http://localhost:3000/reduced) demostrates this.
+
+
 ## Sums
 All the sum endpoints are http PUT requests. Where the two numbers are the last two fragments of the URL:
 
