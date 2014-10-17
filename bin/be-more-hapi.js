@@ -6,19 +6,19 @@ var hapi            = require('hapi'),
 
 
 var serverOptions = {
-    views: {
-        path: 'templates',
-        engines: { html: require('handlebars') },
-        partialsPath: './templates/withPartials',
-        helpersPath: './templates/helpers',
-        isCached: false
-    },
     cors: true
 };
 
 
 var server = hapi.createServer('localhost', 3000, serverOptions);
 server.route(routes.routes);
+server.views({
+        path: 'templates',
+        engines: { html: require('handlebars') },
+        partialsPath: './templates/withPartials',
+        helpersPath: './templates/helpers',
+        isCached: false
+    })
 
 
 // setup swagger options

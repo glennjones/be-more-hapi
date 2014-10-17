@@ -36,9 +36,9 @@ describe('add endpoint', function(){
         {
           'statusCode': 400,
           'error': 'Bad Request',
-          'message': 'the value of b must be a number',
+          'message': 'b must be a number',
           'validation': {
-            'source': 'path',
+            'source': 'params',
             'keys': [
               'b'
             ]
