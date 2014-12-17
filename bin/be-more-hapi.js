@@ -24,7 +24,23 @@ server.views({
 // setup swagger options
 var swaggerOptions = {
     basePath: 'http://localhost:3000',
-    apiVersion: pack.version
+    apiVersion: pack.version,
+    authorizations: {
+        default: {
+            type: "apiKey",
+            passAs: "header",
+            keyname: "authentication"
+        }
+    },
+    info: {
+        title: 'be more hapi',
+        description: 'This web API was built to demonstrate some of the hapi features and functionality.',
+        contact: 'glennjonesnet@gmail.com',
+        license: 'MIT',
+        licenseUrl: '/license'
+    }
+
+
 };
 
 
@@ -42,6 +58,15 @@ server.pack.register({plugin: require('hapi-swagger'), options: swaggerOptions},
 });
 
  
+
+
+
+
+
+
+
+
+
 
 
 
