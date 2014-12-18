@@ -1,17 +1,20 @@
 'use strict';
-var hapi            = require('hapi'),
-    swagger         = require('hapi-swagger'),
-    pack            = require('../package'),
-    routes          = require('../lib/routes.js');
+var Hapi            = require('hapi'),
+    Swagger         = require('hapi-swagger'),
+    Pack            = require('../package'),
+    Routes          = require('../lib/routes.js');
 
 
-var serverOptions = {
-    cors: true
-};
 
 
-var server = hapi.createServer('localhost', 3000, serverOptions);
-server.route(routes.routes);
+var server = new Hapi.Server();
+server.connection({ 
+    host: 'localhost', 
+    port: 3000 
+});
+
+server.route(Routes.routes);
+
 server.views({
         path: 'templates',
         engines: { html: require('handlebars') },
@@ -24,7 +27,7 @@ server.views({
 // setup swagger options
 var swaggerOptions = {
     basePath: 'http://localhost:3000',
-    apiVersion: pack.version,
+    apiVersion: Pack.version,
     authorizations: {
         default: {
             type: "apiKey",
@@ -39,25 +42,29 @@ var swaggerOptions = {
         license: 'MIT',
         licenseUrl: '/license'
     }
-
-
 };
 
 
+
 // adds swagger self documentation plugin
-server.pack.register({plugin: require('hapi-swagger'), options: swaggerOptions}, function (err) {
-    if (err) {
-        console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
-    }else{
-        console.log(['start'], 'swagger interface loaded')
+server.register({
+        register: require('hapi-swagger'), 
+        options: swaggerOptions
+    }, function (err) {
+        if (err) {
+            console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
+        }else{
+            console.log(['start'], 'swagger interface loaded')
 
-        server.start(function(){
-            console.log(['start'], pack.name + ' - web interface: ' + server.info.uri);
-        });
-    }
-});
+            server.start(function(){
+                console.log(['start'], Pack.name + ' - web interface: ' + server.info.uri);
+            });
+        }
+    });
 
- 
+
+
+
 
 
 

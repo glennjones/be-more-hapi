@@ -1,6 +1,6 @@
 'use strict';
 
-var hapi        = require('hapi'),
+var Hapi        = require('hapi'),
     assert      = require('assert'),
     chai        = require('chai'),
     assert      = chai.assert,
@@ -11,7 +11,9 @@ var hapi        = require('hapi'),
 
 
 // setup server with firing up - use inject instead
-var server = new hapi.Server();
+var server = new Hapi.Server();
+
+server.connection({ host: 'test' });
 server.route(routes.routes);
 
 
