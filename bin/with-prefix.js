@@ -1,6 +1,7 @@
 'use strict';
 var Hapi            = require('hapi'),
     Swagger         = require('hapi-swagger'),
+    Blipp           = require('blipp'),
     Pack            = require('../package'),
     Routes          = require('../lib/routes.js');
 
@@ -41,16 +42,24 @@ var swaggerOptions = {
         license: 'MIT',
         licenseUrl: '/license'
     }
- 
 };
+
+
+var serverOptions = {
+       routes: {
+        prefix: '/v2'
+    }
+}
 
 
 
 // adds swagger self documentation plugin
-server.register({
+server.register([{
         register: require('hapi-swagger'), 
         options: swaggerOptions
-    }, function (err) {
+    },{
+        register: require('blipp')
+    }], serverOptions, function (err) {
         if (err) {
             console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
         }else{
@@ -61,19 +70,4 @@ server.register({
             });
         }
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
