@@ -1,10 +1,10 @@
 'use strict';
 var Hapi            = require('hapi'),
-    Swagger         = require('hapi-swagger'),
+    Inert           = require('inert'),
+    Vision          = require('vision'),
+    Blipp           = require('blipp'),
     Pack            = require('../package'),
     Routes          = require('../lib/routes.js');
-
-
 
 
 var server = new Hapi.Server();
@@ -13,20 +13,11 @@ server.connection({
     port: 3000 
 });
 
-server.route(Routes.routes);
-
-server.views({
-        path: 'templates',
-        engines: { html: require('handlebars') },
-        partialsPath: './templates/withPartials',
-        helpersPath: './templates/helpers',
-        isCached: false
-    })
-
-
+    
 // setup swagger options
 var swaggerOptions = {
     apiVersion: Pack.version,
+    basePath: 'http://localhost:3000',
     authorizations: {
         default: {
             type: "apiKey",
@@ -41,34 +32,35 @@ var swaggerOptions = {
         license: 'MIT',
         licenseUrl: '/license'
     }
- 
 };
 
-
-
-// adds swagger self documentation plugin
-server.register({
+// register plug-ins 
+server.register([
+    Inert,
+    Vision,
+    Blipp,
+    {
         register: require('hapi-swagger'), 
         options: swaggerOptions
-    }, function (err) {
-        if (err) {
-            console.log(['error'], 'plugin "hapi-swagger" load error: ' + err) 
-        }else{
-            console.log(['hapi-swagger','start'], 'swagger interface loaded')
-
-            server.start(function(){
-                console.log(['hapi','start'], Pack.name + ' - web interface: ' + server.info.uri);
-            });
-        }
+    }
+    ], function (err) {
+        server.start(function(){
+            console.log('Server running at:', server.info.uri);
+        });
     });
 
 
+// add routes
+server.route(Routes.routes);
 
-
-
-
-
-
+// add templates support with handlebars
+server.views({
+    path: 'templates',
+    engines: { html: require('handlebars') },
+    partialsPath: './templates/withPartials',
+    helpersPath: './templates/helpers',
+    isCached: false
+})
 
 
 

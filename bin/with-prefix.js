@@ -1,3 +1,4 @@
+/*
 'use strict';
 var Hapi            = require('hapi'),
     Swagger         = require('hapi-swagger'),
@@ -6,12 +7,13 @@ var Hapi            = require('hapi'),
     Routes          = require('../lib/routes.js');
 
 
+// Example of the use of route.prefix
 
 
 var server = new Hapi.Server();
 server.connection({ 
     host: 'localhost', 
-    port: 3000 
+    port: 3001 
 });
 
 server.route(Routes.routes);
@@ -46,7 +48,7 @@ var swaggerOptions = {
 
 
 var serverOptions = {
-       routes: {
+    routes: {
         prefix: '/v2'
     }
 }
@@ -71,3 +73,4 @@ server.register([{
         }
     });
 
+*/

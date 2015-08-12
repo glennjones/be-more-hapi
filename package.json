@@ -1,7 +1,7 @@
 {
   "name": "be-more-hapi",
   "author": "Glenn Jones",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "A example site using HAPI to build an API",
   "keywords": [
     "example",
@@ -9,6 +9,7 @@
     "hapi",
     "api"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "http://github.com/glennjones/be-more-hapi.git"
@@ -20,14 +21,16 @@
   },
   "dependencies": {
     "blipp": "2.1.x",
-    "boom": "2.7.x",
-    "convert-base": "~0.1.0",
+    "boom": "2.8.x",
+    "convert-base": "0.1.x",
     "handlebars": "1.3.x",
-    "hapi": "8.4.x",
+    "hapi": "9.0.x",
     "hapi-swagger": "https://api.github.com/repos/glennjones/hapi-swagger/tarball/",
-    "joi": "6.1.x",
+    "joi": "6.6.x",
     "marked": "0.3.x",
-    "mongoose": "4.0.x"
+    "mongoose": "4.0.x",
+    "inert": "3.x",
+    "vision": "2.x"
   },
   "devDependencies": {
     "grunt": "0.4.x",
@@ -37,6 +40,6 @@
     "chai": "1.9.x"
   },
   "engines": {
-    "node": ">= 0.12.x"
+    "node": ">= 0.10.x"
   }
 }
