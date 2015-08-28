@@ -1,7 +1,7 @@
 {
   "name": "be-more-hapi",
   "author": "Glenn Jones",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A example site using HAPI to build an API",
   "keywords": [
     "example",
@@ -30,7 +30,8 @@
     "marked": "0.3.x",
     "mongoose": "4.0.x",
     "inert": "3.x",
-    "vision": "2.x"
+    "vision": "2.x",
+    "hoek": "2.7.0"
   },
   "devDependencies": {
     "grunt": "0.4.x",
