@@ -10,28 +10,17 @@ var Hapi            = require('hapi'),
 var server = new Hapi.Server();
 server.connection({ 
     host: 'localhost', 
-    port: 3000 
+    port: 3003
 });
 
 
     
 // setup swagger options
 var swaggerOptions = {
-    apiVersion: Pack.version,
-    basePath: 'http://localhost:3000',
-    authorizations: {
-        default: {
-            type: "apiKey",
-            passAs: "header",
-            keyname: "authentication"
-        }
-    },
     info: {
+        version: Pack.version,
         title: 'be more hapi',
-        description: 'This web API was built to demonstrate some of the hapi features and functionality.',
-        contact: 'glennjonesnet@gmail.com',
-        license: 'MIT',
-        licenseUrl: '/license'
+        description: 'This web API was built to demonstrate some of the hapi features and functionality.'
     }
 };
 
