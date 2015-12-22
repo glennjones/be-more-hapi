@@ -25,7 +25,7 @@ or
 2. Run `$ npm install`
 3. Start the mongodb server `$ mongod`
 4. Run `$ node bin/be-more-hapi`
-5. Connect to the server using `http://localhost:3000`
+5. Connect to the server using `http://localhost:3003`
 
 
 ## Example of using tags to show a subset of an API
