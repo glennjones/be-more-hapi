@@ -13,7 +13,7 @@ var Hapi            = require('hapi'),
 var server = new Hapi.Server();
 server.connection({ 
     host: 'localhost', 
-    port: 3001 
+    port: 3003
 });
 
 server.route(Routes.routes);

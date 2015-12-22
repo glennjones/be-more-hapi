@@ -6,9 +6,9 @@ var Hapi            = require('hapi'),
     Pack            = require('../package');
 
 var server = new Hapi.Server();
-server.connection({ 
-    host: 'localhost', 
-    port: 3000 
+server.connection({
+    host: 'localhost',
+    port: 3000
 });
 
 
@@ -22,13 +22,13 @@ var getAlbum = function (request, reply) {
 var swaggerOptions = {};
 
 
-// register plug-ins 
+// register plug-ins
 server.register([
     Inert,
     Vision,
     Blipp,
     {
-        register: require('hapi-swagger'), 
+        register: require('hapi-swagger'),
         options: swaggerOptions
     }
     ], function (err) {

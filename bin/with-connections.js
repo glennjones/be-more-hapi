@@ -55,28 +55,27 @@ plugin2.attributes = { name: 'plugin2' };
 
 // setup swagger options
 var swaggerOptions = {
-    apiVersion: Pack.version,
-    authorizations: {
-        default: {
-            type: "apiKey",
-            passAs: "header",
-            keyname: "authentication"
-        }
-    },
     info: {
         title: 'be more hapi',
         description: 'This web API was built to demonstrate some of the hapi features and functionality.',
-        contact: 'glennjonesnet@gmail.com',
-        license: 'MIT',
-        licenseUrl: '/license'
+        contact: {
+            name: 'Glenn Jones',
+            email: 'glennjonesnet@gmail.com'
+        },
+        license: {
+            name: 'MIT',
+            url: 'http://github/glennjones/be-more-hapi/license'
+        },
+        version: Pack.version
     }
 };
 
+// clone swagger options
 var swaggerOptionsA = Hoek.clone(swaggerOptions),
     swaggerOptionsB = Hoek.clone(swaggerOptions)
 
-swaggerOptionsA.basePath = 'http://localhost:3000';
-swaggerOptionsB.basePath = 'http://localhost:3001';
+swaggerOptionsA.host = 'localhost:3001';
+swaggerOptionsB.host = 'localhost:3002';
 
 
 

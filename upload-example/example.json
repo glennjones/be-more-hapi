@@ -1,0 +1,458 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.7.1",
+    "title": "be more hapi",
+    "description": "This web API was built to demonstrate some of the hapi features and functionality.",
+    "contact": {
+      "email": "glennjonesnet@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "/license"
+    }
+  },
+  "paths": {
+    "/store/": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Sum"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "store"
+        ],
+        "summary": "Add sum",
+        "operationId": "storeit",
+        "parameters": [
+          {
+            "in": "formData",
+            "description": "the first number",
+            "name": "a",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "formData",
+            "description": "the second number",
+            "name": "b",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "formData",
+            "description": "the opertator i.e. + - / or *",
+            "name": "operator",
+            "required": true,
+            "type": "string",
+            "default": "+"
+          },
+          {
+            "in": "formData",
+            "description": "the result of the sum",
+            "name": "equals",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "/store/file/": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Sum"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "415": {
+            "description": "Unsupported Media Type"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "store"
+        ],
+        "summary": "Add sum, with JSON file",
+        "operationId": "storefile",
+        "parameters": [
+          {
+            "in": "formData",
+            "description": "json file with object containing: a, b, operator and equals",
+            "name": "file",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/file"
+            }
+          }
+        ]
+      }
+    },
+    "/store/payload/": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Sum"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "store"
+        ],
+        "summary": "Add sum, with JSON object",
+        "operationId": "storepayload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/storepayload"
+            }
+          }
+        ]
+      }
+    },
+    "/store/{id}": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Sum not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "store"
+        ],
+        "summary": "Delete sums",
+        "operationId": "storeid",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "the id of the sum in the store",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/sum/add/{a}/{b}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "sum"
+        ],
+        "summary": "Add",
+        "operationId": "sumaddab",
+        "parameters": [
+          {
+            "in": "header",
+            "description": "return result as decimal or binary",
+            "name": "x-format",
+            "required": false,
+            "type": "string",
+            "default": "decimal"
+          },
+          {
+            "in": "path",
+            "description": "the first number",
+            "name": "a",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "description": "the second number",
+            "name": "b",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "/sum/divide/{a}/{b}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "sum"
+        ],
+        "summary": "Divide",
+        "operationId": "sumdivideab",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "the first number - can NOT be 0",
+            "name": "a",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "description": "the second number - can NOT be 0",
+            "name": "b",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "/sum/multiple/{a}/{b}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "sum"
+        ],
+        "summary": "Multiple",
+        "operationId": "summultipleab",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "the first number",
+            "name": "a",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "description": "the second number",
+            "name": "b",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "/sum/subtract/{a}/{b}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "description": "",
+        "tags": [
+          "sum"
+        ],
+        "summary": "Subtract",
+        "operationId": "sumsubtractab",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "the first number",
+            "name": "a",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "path",
+            "description": "the second number",
+            "name": "b",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "tore"
+    },
+    {
+      "name": "um"
+    }
+  ],
+  "definitions": {
+    "Sum": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "a": {
+          "type": "number",
+          "required": true
+        },
+        "b": {
+          "type": "number",
+          "required": true
+        },
+        "operator": {
+          "type": "string",
+          "description": "either +, -, /, or *",
+          "required": true
+        },
+        "equals": {
+          "type": "number",
+          "required": true
+        },
+        "created": {
+          "type": "string",
+          "description": "ISO date string",
+          "required": true
+        },
+        "modified": {
+          "type": "string",
+          "description": "ISO date string",
+          "defaultValue": null
+        }
+      }
+    },
+    "List": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sum"
+          }
+        },
+        "count": {
+          "type": "number",
+          "required": true
+        },
+        "pageSize": {
+          "type": "number",
+          "required": true
+        },
+        "page": {
+          "type": "number",
+          "required": true
+        },
+        "pageCount": {
+          "type": "number",
+          "required": true
+        }
+      }
+    },
+    "storepayload": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "number",
+          "description": "the first number",
+          "required": true
+        },
+        "b": {
+          "type": "number",
+          "description": "the second number",
+          "required": true
+        },
+        "operator": {
+          "type": "string",
+          "description": "the opertator i.e. + - / or *",
+          "required": true,
+          "default": "+"
+        },
+        "equals": {
+          "type": "number",
+          "description": "the result of the sum",
+          "required": true
+        }
+      }
+    },
+    "Result": {
+      "type": "object",
+      "properties": {
+        "equals": {
+          "type": "number",
+          "defaultValue": null
+        }
+      }
+    }
+  }
+}
