@@ -89,7 +89,7 @@ server.register([
     if (err) {
         throw err;
     }
-    
+
     // interface a
     server.register([
         plugin1,
@@ -100,7 +100,7 @@ server.register([
             if (err) {
                 throw err;
             }
-            
+
             // interface b
             server.register([
                 plugin2,
@@ -112,7 +112,8 @@ server.register([
                         throw err;
                     }
                     server.start(function () {
-                        console.log('Server running at:', server.info.uri);
+
+                        console.log('Server servers');
                     });
                 });
 

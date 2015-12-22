@@ -8,23 +8,23 @@ var Hapi            = require('hapi'),
     Pack            = require('../package');
 
 var server = new Hapi.Server();
-server.connection({ 
-    host: 'localhost', 
-    port: 3000 
+server.connection({
+    host: 'localhost',
+    port: 3000
 });
 
 
 var swaggerOptions = {};
 
 
-// register plug-ins 
+// register plug-ins
 server.register([
     Inert,
     Vision,
     Blipp,
     H2o2,
     {
-        register: require('hapi-swagger'), 
+        register: require('hapi-swagger'),
         options: swaggerOptions
     }
     ], function (err) {
@@ -32,14 +32,14 @@ server.register([
             console.log('Server running at:', server.info.uri);
         });
     });
-    
-    
+
+
 var ufModel = Joi.object({
 	url: Joi.string().required()
 }).meta({
   className: 'Microformats'
-});    
-    
+});
+
 
 
 server.route([{
@@ -164,13 +164,13 @@ server.route([{
     path: '/tools/microformats',
     config: {
         description:'parse microformats',
-        tags: ['api'],        
+        tags: ['api'],
         plugins: {
             'hapi-swagger': {
                 payloadType: 'form',
                 validate: {
                     payload: {
-					   url: Joi.string().uri().required(),
+					   url: Joi.string().uri().required().example('http://glennjones.net'),
                        callback: Joi.string(),
                        collapsewhitespace: Joi.boolean(),
                        dateformat: Joi.any().allow(['auto', 'w3c', 'rfc3339', 'html5'])

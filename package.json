@@ -25,7 +25,7 @@
     "convert-base": "0.1.x",
     "handlebars": "1.3.x",
     "hapi": "11.0.x",
-    "hapi-swagger": "3.0.0-rc1",
+    "hapi-swagger": "https://api.github.com/repos/glennjones/hapi-swagger/tarball/dev",
     "joi": "6.9.1",
     "marked": "0.3.x",
     "mongoose": "4.1.x",

@@ -8,13 +8,13 @@ var Hapi            = require('hapi'),
 
 
 var server = new Hapi.Server();
-server.connection({ 
-    host: 'localhost', 
-    port: 3003
+server.connection({
+    host: 'localhost',
+    port: 3000
 });
 
 
-    
+
 // setup swagger options
 var swaggerOptions = {
     info: {
@@ -24,13 +24,13 @@ var swaggerOptions = {
     }
 };
 
-// register plug-ins 
+// register plug-ins
 server.register([
     Inert,
     Vision,
     Blipp,
     {
-        register: require('hapi-swagger'), 
+        register: require('hapi-swagger'),
         options: swaggerOptions
     }
     ], function (err) {
@@ -41,7 +41,7 @@ server.register([
 
 
 // add routes
-server.route(Routes.routes);
+server.route(Routes);
 
 // add templates support with handlebars
 server.views({
