@@ -21,7 +21,22 @@ var swaggerOptions = {
         version: Pack.version,
         title: 'be more hapi',
         description: 'This web API was built to demonstrate some of the hapi features and functionality.'
-    }
+    },
+    tags: [{
+        'name': 'sum',
+        'description': 'working with maths',
+        'externalDocs': {
+            'description': 'Find out more',
+            'url': 'http://example.org'
+        }
+    }, {
+        'name': 'store',
+        'description': 'storing your susm for later use',
+        'externalDocs': {
+            'description': 'Find out more',
+            'url': 'http://example.org'
+        }
+    }]
 };
 
 // register plug-ins
