@@ -31,7 +31,7 @@ var swaggerOptions = {
         }
     }, {
         'name': 'store',
-        'description': 'storing your susm for later use',
+        'description': 'storing your sums for later use',
         'externalDocs': {
             'description': 'Find out more',
             'url': 'http://example.org'

@@ -1,7 +1,9 @@
 # An API built to show off hapi.js
 
-This web API was built to demonstrate some of the [hapi](hapijs.com) features and functionality. It was part of a talk given at [Asyncjs](http://asyncjs.com/be-more-hapi/) on the 10 October 2013.
+___PLEASE NOTE: in Feb 2016 `hapi-swagger` updated the version of swagger-ui used and increased the options that are available. To do this the code for custom pages was changed. Please make sure you have
+the latest version of this project and if you are using custom pages in your own project you update all the code as per the Readme on the [hapi-swagger](https://github.com/glennjones/hapi-swagger) repo.___
 
+This web API was built to demonstrate some of the [hapi](hapijs.com) features and functionality. It was part of a talk given at [Asyncjs](http://asyncjs.com/be-more-hapi/) on the 10 October 2013.
 The API is a simple calculator that allows you to add, subtract, divide or multiple two numbers. To demonstrate a more common set of API calls I also added methods to store sums into a mongodb database.
 
 ## hapi-swagger
@@ -10,13 +12,13 @@ The project makes use of a hapi.js plugin [hapi-swagger](https://github.com/glen
 
 ## Install
 You first need to install [node.js](http://nodejs.org/) and [mongodb](http://www.mongodb.org/downloads) if you do not already have them on your computer. Then download the code from github:
-
+```
     $ git clone https://github.com/glennjones/be-more-hapi.git
-
+```
 or
-
+```
     $ curl -L https://github.com/glennjones/be-more-hapi/tarball/master | tar zx
-
+```
 
 
 ## Run
@@ -38,16 +40,16 @@ All the sum endpoints are http PUT requests. Where the two numbers are the last 
     http://localhost:3000/sum/multiple/5/6
 
 If the sum is completed without error the response is also a simple format:
-
+```javascript
     {
         "equals": 30
     }
-
+```
 
 ## Errors
 
 The error format always has 3 properties; code, error and message. There is an optional fourth property validation which is added if the input is in the incorrect format.
-
+```javascript
     {
       	"code": 400,
   		"error": "Bad Request",
@@ -59,13 +61,13 @@ The error format always has 3 properties; code, error and message. There is an o
     		]
   		}
 	}
-
+```
 
 
 ## Mocha integration test
 The project has example integration and unit tests. To run the test within the project type the following command
-
+```
     $ mocha --reporter list
-
+```
 
 

@@ -1,7 +1,7 @@
 {
   "name": "be-more-hapi",
   "author": "Glenn Jones",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A example site using HAPI to build an API",
   "keywords": [
     "example",
@@ -27,7 +27,7 @@
     "h2o2": "4.0.1",
     "handlebars": "1.3.x",
     "hapi": "12.0.x",
-    "hapi-swagger": "https://api.github.com/repos/glennjones/hapi-swagger/tarball/",
+    "hapi-swagger": "glennjones/hapi-swagger",
     "hoek": "2.7.0",
     "inert": "3.x",
     "joi": "6.9.1",
