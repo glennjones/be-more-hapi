@@ -1,10 +1,14 @@
 # An API built to show off hapi.js
 
-___PLEASE NOTE: in Feb 2016 `hapi-swagger` updated the version of swagger-ui used and increased the options that are available. To do this the code for custom pages was changed. Please make sure you have
-the latest version of this project and if you are using custom pages in your own project you update all the code as per the Readme on the [hapi-swagger](https://github.com/glennjones/hapi-swagger) repo.___
+___PLEASE NOTE: in Feb 2016 `hapi-swagger` started using a updated the version of swagger-ui and increased the options that are
+available. To do this the code for custom pages was changed. Please make sure you have the latest version of this project
+and if you are using custom pages in your own project you need to update all the code as per the Readme on the
+[hapi-swagger](https://github.com/glennjones/hapi-swagger) repo.___
 
-This web API was built to demonstrate some of the [hapi](hapijs.com) features and functionality. It was part of a talk given at [Asyncjs](http://asyncjs.com/be-more-hapi/) on the 10 October 2013.
-The API is a simple calculator that allows you to add, subtract, divide or multiple two numbers. To demonstrate a more common set of API calls I also added methods to store sums into a mongodb database.
+This web API was built to demonstrate some of the [hapi](hapijs.com) features and functionality. It was part of a talk
+given at [Asyncjs](http://asyncjs.com/be-more-hapi/) on the 10 October 2013. The API is a simple calculator that allows
+you to add, subtract, divide or multiple two numbers. To demonstrate a more common set of API calls I also added methods
+to store sums into a mongodb database.
 
 ## hapi-swagger
 The project makes use of a hapi.js plugin [hapi-swagger](https://github.com/glennjones/hapi-swagger) which self documents the API using the [Swagger UI](https://github.com/wordnik/swagger-ui) interface. It provides simple forms which developers can use to quickly interact with your API and learn how it works. The forms and documentation are built from the standard hapi.js routes object.
