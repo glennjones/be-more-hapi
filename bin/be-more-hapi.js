@@ -10,13 +10,15 @@ var Hapi            = require('hapi'),
 var server = new Hapi.Server();
 server.connection({
     host: (process.env.HOST || 'localhost'),
-    port: (process.env.PORT || 3000)
+    port: (process.env.PORT || 3000),
+    routes: { cors: true }
 });
 
 
 
 // setup swagger options
 var swaggerOptions = {
+    host: 'pure-bastion-46398.herokuapp.com',
     info: {
         version: Pack.version,
         title: 'be more hapi',
