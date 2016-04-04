@@ -14,10 +14,9 @@
     "type": "git",
     "url": "http://github.com/glennjones/be-more-hapi.git"
   },
-  "main": "index",
   "scripts": {
     "test": "make test",
-    "start": "bin/be-more-hapi"
+    "start": "node bin/be-more-hapi.js"
   },
   "dependencies": {
     "blipp": "2.1.x",
