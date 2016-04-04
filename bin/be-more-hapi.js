@@ -15,15 +15,8 @@ server.connection({
 });
 
 
-for (var prop in process.env) {
-  console.log("process.env." + prop + " = " + process.env[prop]);
-}
-
-
-
 // setup swagger options
 var swaggerOptions = {
-    host: 'pure-bastion-46398.herokuapp.com',
     info: {
         version: Pack.version,
         title: 'be more hapi',
