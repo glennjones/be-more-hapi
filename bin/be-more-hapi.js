@@ -15,6 +15,11 @@ server.connection({
 });
 
 
+for (var prop in process.env) {
+  console.log("process.env." + prop + " = " + process.env[prop]);
+}
+
+
 
 // setup swagger options
 var swaggerOptions = {
