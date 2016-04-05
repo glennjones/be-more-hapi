@@ -26,7 +26,7 @@
     "h2o2": "4.0.1",
     "handlebars": "1.3.x",
     "hapi": "12.0.x",
-    "hapi-swagger": "glennjones/hapi-swagger",
+    "hapi-swagger": "4.3.1",
     "hoek": "2.7.0",
     "inert": "3.x",
     "joi": "6.9.1",
