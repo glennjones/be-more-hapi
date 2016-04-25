@@ -1,44 +1,57 @@
 'use strict';
+const Hapi = require('hapi');
+const Inert = require('inert');
+const Vision = require('vision');
+const Chai = require('chai');
 
-var Hapi        = require('hapi'),
-    assert      = require('assert'),
-    chai        = require('chai'),
-    assert      = chai.assert,
-    routes      = require('../lib/routes.js');
-
-
-// integration tests for API endpoint
+const Routes = require('../lib/routes.js');
+const assert = Chai.assert;
 
 
 // setup server with firing up - use inject instead
-var server = new Hapi.Server();
+const server = new Hapi.Server();
+server.connection();
 
-server.connection({ host: 'test' });
-server.route(routes.routes);
+// register plug-ins
+server.register([
+    Inert,
+    Vision,
+    ], function (err) {
+        server.start(function( err ){
+          if(err){
+            console.log(err);
+          }
+        });
+    });
+
+server.route(Routes);
 
 
 // parseurls endpoint test
 describe('add endpoint', function(){
 
+  it('add - should add two numbers together', (done) => {
 
-  it('add - should add two numbers together', function(done){
-    server.inject({method: 'PUT', url: '/sum/add/5/5'}, function (res) {
+    server.inject({method: 'PUT', url: '/sum/add/5/5'}, (res) => {
+
         assert.deepEqual(
         {
-          'equals': 10      
+          'equals': 10
         }, JSON.parse(res.payload));
         done();
     });
   });
 
 
-  it('add - should error if a string is passed', function(done){
-    server.inject({method: 'PUT', url: '/sum/add/100/x'}, function (res) {
+  it('add - should error if a string is passed', (done) =>{
+
+    server.inject({method: 'PUT', url: '/sum/add/100/x'}, (res) => {
+
         assert.deepEqual(
         {
           'statusCode': 400,
           'error': 'Bad Request',
-          'message': 'b must be a number',
+          'message': 'child "b" fails because ["b" must be a number]',
           'validation': {
             'source': 'params',
             'keys': [
@@ -49,6 +62,5 @@ describe('add endpoint', function(){
         done();
     });
   });
-
 
 });

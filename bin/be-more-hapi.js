@@ -1,13 +1,13 @@
 'use strict';
-var Hapi            = require('hapi'),
-    Inert           = require('inert'),
-    Vision          = require('vision'),
-    Blipp           = require('blipp'),
-    Pack            = require('../package'),
-    Routes          = require('../lib/routes.js');
+const Hapi = require('hapi');
+const Inert = require('inert');
+const Vision = require('vision');
+const Blipp = require('blipp');
+const Pack = require('../package');
+const Routes = require('../lib/routes.js');
 
 
-var server = new Hapi.Server();
+const  server = new Hapi.Server();
 server.connection({
     host: (process.env.HOST || 'localhost'),
     port: (process.env.PORT || 3000),
@@ -17,7 +17,7 @@ server.connection({
 
 
 // setup swagger options
-var swaggerOptions = {
+const swaggerOptions = {
     info: {
         version: Pack.version,
         title: 'be more hapi',
