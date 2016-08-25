@@ -1,7 +1,7 @@
 {
   "name": "be-more-hapi",
   "author": "Glenn Jones",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "A example site using HAPI to build an API",
   "keywords": [
     "example",
@@ -20,21 +20,21 @@
   },
   "dependencies": {
     "blipp": "2.3.x",
-    "boom": "3.1.x",
+    "boom": "3.2.x",
     "convert-base": "0.1.x",
-    "glue": "3.1.x",
-    "h2o2": "4.0.x",
+    "glue": "3.4.x",
+    "h2o2": "5.1.x",
     "handlebars": "4.0.x",
-    "hapi": "13.0.x",
+    "hapi": "^14.0.0",
     "hapi-swagger": "glennjones/hapi-swagger",
-    "hoek": "3.0.x",
-    "inert": "3.2.x",
-    "joi": "8.0.5",
+    "hoek": "4.0.x",
+    "inert": "4.0.x",
+    "joi": "9.0.4",
     "marked": "0.3.x",
-    "mongoose": "4.4.x",
+    "mongoose": "4.5.x",
     "vision": "4.1.x",
-    "visionary": "4.0.x",
-    "wreck": "7.2.x"
+    "visionary": "6.0.x",
+    "wreck": "9.0.x"
   },
   "devDependencies": {
     "grunt": "1.0.x",
